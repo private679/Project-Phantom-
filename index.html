@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050711">
+  <title>PHANTOM OS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="boot">
+    <div class="boot-logo">P</div>
+    <h1>PHANTOM OS</h1>
+    <p id="bootText">INITIALIZING SYSTEM...</p>
+    <div class="progress">
+      <div id="progressBar"></div>
+    </div>
+  </div>
+
+  <main id="app" class="hidden">
+
+    <header>
+      <div class="brand">
+        <span class="logo">P</span>
+        <div>
+          <h2>PHANTOM<span>OS</span></h2>
+          <small>ARTIFICIAL INTELLIGENCE SYSTEM</small>
+        </div>
+      </div>
+      <div class="status">
+        <span class="dot"></span> ONLINE
+      </div>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">WELCOME BACK, OPERATOR</p>
+      <h1>Beyond<br>Human <span>Limits.</span></h1>
+      <p class="subtitle">Your world. Your intelligence. Your control.</p>
+
+      <div class="orb-container">
+        <div class="ring ring1"></div>
+        <div class="ring ring2"></div>
+        <div class="ring ring3"></div>
+        <button id="orb" aria-label="Activate Phantom AI">
+          <span>✦</span>
+        </button>
+      </div>
+
+      <p id="aiStatus">PHANTOM AI STANDBY</p>
+      <button class="voice-btn" id="voiceBtn">◉ &nbsp; ACTIVATE VOICE</button>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <small>SYSTEM STATUS</small>
+        <h3><span class="green">●</span> OPERATIONAL</h3>
+        <p>All systems functioning</p>
+      </div>
+
+      <div class="card">
+        <small>LOCAL TIME</small>
+        <h3 id="clock">00:00:00</h3>
+        <p>Your device time</p>
+      </div>
+
+      <div class="card">
+        <small>CORE ENGINE</small>
+        <h3>PHANTOM-01</h3>
+        <p>AI interface simulation</p>
+      </div>
+
+      <div class="card">
+        <small>SECURITY</small>
+        <h3><span class="green">●</span> PROTECTED</h3>
+        <p>Interface demonstration</p>
+      </div>
+    </section>
+
+    <section class="terminal">
+      <div class="terminal-head">
+        <span>PHANTOM TERMINAL</span>
+        <span>● ● ●</span>
+      </div>
+
+      <div id="output">
+        <p>> PHANTOM OS initialized.</p>
+        <p>> Awaiting operator command...</p>
+      </div>
+
+      <form id="commandForm">
+        <span>❯</span>
+        <input id="command" placeholder="Enter a command..." autocomplete="off">
+        <button type="submit">RUN</button>
+      </form>
+
+      <div class="commands">
+        TRY: <button data-cmd="help">help</button>
+        <button data-cmd="about">about</button>
+        <button data-cmd="scan">scan</button>
+        <button data-cmd="secret">secret</button>
+        <button data-cmd="clear">clear</button>
+      </div>
+    </section>
+
+    <footer>PHANTOM OS © 2050 · BUILT FOR THE FUTURE</footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
