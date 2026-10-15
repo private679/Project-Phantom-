@@ -96,7 +96,7 @@ async function respond(message) {
     return data.reply;
 
   } catch (error) {
-    print("PHANTOM: My AI connection failed, Operator.");
+    print("PHANTOM ERROR: " + error.message);
     return "Connection failed.";
   }
 }
