@@ -72,35 +72,34 @@ function print(message) {
 }
 
 // PHANTOM PERSONALITY
-function respond(message) {
-  const text = message.toLowerCase();
-  let reply;
+async function respond(message) {
+  try {
+    print("PHANTOM: Thinking, Operator...");
 
-  if (/\b(hello|hi|hey|yo)\b/.test(text)) {
-    reply = "Greetings, Operator. Phantom is online. What is on your mind?";
-  } else if (text.includes("your name")) {
-    reply = "I am Phantom. Your digital companion from the future.";
-  } else if (text.includes("how are you")) {
-    reply = "All systems are operational. Thanks for checking on me, Operator.";
-  } else if (text.includes("joke") || text.includes("funny")) {
-    reply = "Why do programmers prefer dark mode? Because light attracts bugs.";
-  } else if (text.includes("who made you")) {
-    reply = "I am Phantom, a project you are building. My intelligence will grow as we develop me.";
-  } else if (text.includes("time")) {
-    reply = "The current time is " + new Date().toLocaleTimeString() + ".";
-  } else if (text.includes("help")) {
-    reply = "I can greet you, tell jokes, share the time, and respond to a few basic questions. A real AI connection is our next upgrade.";
-  } else if (text.includes("bye")) {
-    reply = "Until next time, Operator. Phantom signing off.";
-  } else {
-    reply = "Interesting, Operator. I am still learning. We will connect my real AI brain in our next upgrade.";
+    const response = await fetch(
+      "https://project-phantom-3ao7.vercel.app/api/chat",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Connection failed");
+    }
+
+    print("PHANTOM: " + data.reply);
+    speak(data.reply);
+    return data.reply;
+
+  } catch (error) {
+    print("PHANTOM: My AI connection failed, Operator.");
+    return "Connection failed.";
   }
-
-  print("PHANTOM: " + reply);
-  speak(reply);
-  return reply;
 }
-
 // TERMINAL COMMANDS
 function runCommand(value) {
   const command = value.trim().toLowerCase();
